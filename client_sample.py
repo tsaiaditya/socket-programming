@@ -1,0 +1,10 @@
+from socket import *
+receive=socket()
+receive.connect(('192.168.43.254',8000))
+a=int(input('Enter 1st number : '))
+b=int(input('Enter 2nd number : '))
+receive.send(str(a).encode())
+receive.send(str(b).encode())
+msg=receive.recv(1024)
+print('Greater : ',msg.decode())
+receive.close()
